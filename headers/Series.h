@@ -1,3 +1,6 @@
+#ifndef SERIES_H_INCLUDED
+#define SERIES_H_INCLUDED
+
 #include <stdlib.h>
 #include "iostream"
 #include "fstream"
@@ -348,3 +351,4 @@ int main()
         system("Pause");
     }while(opc != 6);
 }
+#endif

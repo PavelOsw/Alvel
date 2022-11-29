@@ -1,3 +1,6 @@
+#ifndef PELICULAS_H_INCLUDED
+#define PELICULAS_H_INCLUDED
+
 #include <iostream>
 #include <fstream>
 #include <string.h>
@@ -471,7 +474,7 @@ int main(){
         SetConsoleTextAttribute(hConsole, 13);
         cout<<"\n                                    +";
         SetConsoleTextAttribute(hConsole, 3);
-        cout<<"\n\n                 ¡BIENVENIDO AL SERVICIO DE STREAMING!";
+        cout<<"\n\n                 ï¿½BIENVENIDO AL SERVICIO DE STREAMING!";
         SetConsoleTextAttribute(hConsole, 15);
         cout<<"\n==================================================================\n";
         SetConsoleTextAttribute(hConsole, 7);
@@ -512,3 +515,4 @@ int main(){
 
     }while(opc!=6);
 }
+#endif

@@ -1,4 +1,6 @@
-#include <iostream>
+#ifndef USUARIOS_H_INCLUDED
+#define USUARIOS_H_INCLUDED
+
 #include <iostream>
 #include <fstream>
 #include <cstring>
@@ -302,3 +304,4 @@ int main()
     while(op!=6);
     return 0;
 }
+#endif
