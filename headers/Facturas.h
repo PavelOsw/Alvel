@@ -396,7 +396,7 @@ int facturaCliente :: menuFactura()
         SetConsoleTextAttribute(hConsole, 15);
         cout<<"\n==================================================================\n";
         SetConsoleTextAttribute(hConsole, 3);
-        cout<<"                 --- PELICULAS, SERIES, NOVELAS Y + ---\n\n";
+        cout<<"                          --- FACTURAS ---\n\n";
         SetConsoleTextAttribute(hConsole, 12);
         cout<<"                               A";
         SetConsoleTextAttribute(hConsole, 9);
@@ -409,8 +409,6 @@ int facturaCliente :: menuFactura()
         cout<<"\n                                   L";
         SetConsoleTextAttribute(hConsole, 13);
         cout<<"\n                                    +";
-        SetConsoleTextAttribute(hConsole, 3);
-        cout<<"\n\n                 BIENVENIDO AL SERVICIO DE STREAMING!";
         SetConsoleTextAttribute(hConsole, 15);
         cout<<"\n==================================================================\n";
         SetConsoleTextAttribute(hConsole, 7);
@@ -418,14 +416,15 @@ int facturaCliente :: menuFactura()
         SetConsoleTextAttribute(hConsole, 3);
 
         /*----------------------------------------------------------------------------------------*/
-        cout<<"1) Agregar\n";
-        cout<<"2) Imprimir\n";
-        cout<<"3) Buscar\n";
-        cout<<"4) Modificar\n";
-        cout<<"5) Eliminar\n";
-        cout<<"6) Salir\n";
-        SetConsoleTextAttribute(hConsole, 7);
-        cout<<"\nOPC: ";
+        cout<<"1) AGREGAR\n";
+        cout<<"2) IMPRIMIR\n";
+        cout<<"3) BUSCAR\n";
+        cout<<"4) MODIFICAR\n";
+        cout<<"5) ELIMINAR\n";
+        cout<<"6) SALIR\n";
+        SetConsoleTextAttribute(hConsole, 15);
+        cout<<"\n==================================================================\n";
+        cout<<"\nINGRESA LA OPCION DESEADA: ";
         cin>>opc;
         switch(opc)
     {
@@ -451,12 +450,9 @@ int facturaCliente :: menuFactura()
         break;
 
         case 6:
-        cout<<"\nSALIENDO...\n";
-        return 0;
         break;
     }
     getch();
-    }while(opc!=9);
-    return 0;
+    }while(opc!=6);
 }
 #endif

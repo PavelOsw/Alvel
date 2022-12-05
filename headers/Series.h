@@ -16,6 +16,7 @@ class Series
     public:
         char titulo[50], anio[5], pais[25];
 
+    void menuSerie();
     void Agregar();
 	void Mostrar();
 	void Modificar();
@@ -68,7 +69,7 @@ void Series::Mostrar()
             count++;
 			archivo.read((char*)&dim1, sizeof(int));
 			archivo.read((char*)&titulo, dim1);
-			titulo[dim1] = '\0'; 
+			titulo[dim1] = '\0';
 			archivo.read((char*)&dim2, sizeof(int));
 			archivo.read((char*)&anio, dim2);
 			anio[dim2] = '\0';
@@ -204,7 +205,7 @@ int band = 0;
                 band = 1;
                 cout<<"DESEAS ELIMINAR?\n1.- SI\n0.- NO\n>: ";
                 cin>>opc;
-                
+
             }//condicion
             cout<<"\n==================================================================\n";
 
@@ -289,7 +290,7 @@ void Series::Buscar()
 	}
     archivo.close();
 }
-int main()
+void Series :: menuSerie()
 {
 
 	cout<<"\n\n\t\tBIENVENIDO AL MENU DE SERIES\n\n";
@@ -298,7 +299,7 @@ int main()
         SetConsoleTextAttribute(hConsole, 15);
         cout<<"\n==================================================================\n";
         SetConsoleTextAttribute(hConsole, 3);
-        cout<<"                 --- PELICULAS, SERIES, NOVELAS Y + ---\n\n";
+        cout<<"                           --- SERIES ---\n\n";
         SetConsoleTextAttribute(hConsole, 12);
         cout<<"                               A";
         SetConsoleTextAttribute(hConsole, 9);
@@ -311,23 +312,21 @@ int main()
         cout<<"\n                                   L";
         SetConsoleTextAttribute(hConsole, 13);
         cout<<"\n                                    +";
-        SetConsoleTextAttribute(hConsole, 3);
-        cout<<"\n\n                 BIENVENIDO AL SERVICIO DE STREAMING!";
         SetConsoleTextAttribute(hConsole, 15);
         cout<<"\n==================================================================\n";
         SetConsoleTextAttribute(hConsole, 7);
         cout<<"\nMENU PRINCIPAL: ";
         SetConsoleTextAttribute(hConsole, 3);
-        cout<<"\n\n1.- AGREGAR SERIE.\n";
-        cout<<"2.- IMPRIMIR DATOS DE SERIES.\n";
-        cout<<"3.- BUSCAR DATOS DE SERIES.\n";
-        cout<<"4.- MODIFICAR DATOS DE SERIES.\n";
-        cout<<"5.- ELIMINAR DATOS DE SERIES.\n";
-        cout<<"6.- SALIR.\n";
+        cout<<"\n\n1.- AGREGAR\n";
+        cout<<"2.- IMPRIMIR\n";
+        cout<<"3.- BUSCAR\n";
+        cout<<"4.- MODIFICAR\n";
+        cout<<"5.- ELIMINAR\n";
+        cout<<"6.- SALIR\n";
         SetConsoleTextAttribute(hConsole, 15);
-        cout<<"\n==================================================================";cout<<endl;
-        SetConsoleTextAttribute(hConsole, 7);
-        cout<<"OPC: ";cin>>opc;
+        cout<<"\n==================================================================\n";
+        cout<<"\nINGRESA LA OPCION DESEADA: ";
+        cin>>opc;
 		switch(opc) {
 		  case 1:
 			pr.Agregar();
@@ -345,8 +344,8 @@ int main()
           case 5:
 			pr.Eliminar();
 			break;
-          default:
-            cout << "OPCION INCORRECTA...."<<endl;
+		  case 6:
+            break;
         }
         system("Pause");
     }while(opc != 6);

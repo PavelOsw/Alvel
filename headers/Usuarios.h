@@ -16,12 +16,15 @@ class Orden
 {
 public:
     char nombre[35],username[30],email[35],password[25],fecha_inicio[10],fecha_final[10];
+
+    void menuUser();
     void Agregar();
     void Mostrar();
     void Modificar();
     void Buscar();
     void Eliminar();
 } RegisUser;
+
 void Orden::Agregar()
 {
     cout<<"\n==================================================================\n";
@@ -49,7 +52,7 @@ void Orden::Mostrar()
     system("cls");
     cout<<"\n==================================================================\n";
     cout<<"                   ALVEL+";
-    cout<<"\n==================================================================\n";    
+    cout<<"\n==================================================================\n";
     ifstream archivo("usuarios.txt");
     if(!archivo.good())
     {
@@ -86,7 +89,7 @@ void Orden::Modificar()
     }
     else
     {
-        cout<<"\n==================================================================\n";    
+        cout<<"\n==================================================================\n";
         cout<<"\t\tModificar datos de usuario"<<endl;
         cout<<"\n==================================================================\n"<<endl<<endl;
         cout<<"Ingrese el nombre de usuario a modificar: ";
@@ -230,7 +233,7 @@ void Pausar()
     cin.get();
     system("cls");
 }
-int main()
+void Orden :: menuUser()
 {
     int op;
     do
@@ -240,7 +243,7 @@ int main()
         SetConsoleTextAttribute(hConsole, 15);
         cout<<"\n==================================================================\n";
         SetConsoleTextAttribute(hConsole, 3);
-        cout<<"                 --- PELICULAS, SERIES, NOVELAS Y + ---\n\n";
+        cout<<"                        --- USUARIOS ---\n\n";
         SetConsoleTextAttribute(hConsole, 12);
         cout<<"                               A";
         SetConsoleTextAttribute(hConsole, 9);
@@ -253,21 +256,21 @@ int main()
         cout<<"\n                                   L";
         SetConsoleTextAttribute(hConsole, 13);
         cout<<"\n                                    +";
-        SetConsoleTextAttribute(hConsole, 3);
-        cout<<"\n\n                 BIENVENIDO AL SERVICIO DE STREAMING!";
         SetConsoleTextAttribute(hConsole, 15);
         cout<<"\n==================================================================\n";
         SetConsoleTextAttribute(hConsole, 7);
         cout<<"\n\t\t\tMENU PRINCIPAL "<<endl<<endl;
         SetConsoleTextAttribute(hConsole, 3);
 /*----------------------------------------------------------------------------------------*/
-        cout<<"1.-Registro de usuario" <<endl;
-        cout<<"2.-Mostrar registros" <<endl;
-        cout<<"3.-Modificar "<<endl;
-        cout<<"4.-Eliminar" <<endl;
-        cout<<"5.-Buscar "<<endl;
-        cout<<"6.-Salir "<<endl;
-        cout<<"Ingresa la opcion: ";
+        cout<<"1) REGISTRO DE USUARIO" <<endl;
+        cout<<"2) MOSTRAR" <<endl;
+        cout<<"3) MODIFICAR "<<endl;
+        cout<<"4) ELIMINAR" <<endl;
+        cout<<"5) BUSCAR"<<endl;
+        cout<<"6) SALIR"<<endl;
+        SetConsoleTextAttribute(hConsole, 15);
+        cout<<"\n==================================================================\n";
+        cout<<"\nINGRESA LA OPCION DESEADA: ";
         cin>>op;
         switch(op)
         {
@@ -302,6 +305,5 @@ int main()
         }
     }
     while(op!=6);
-    return 0;
 }
 #endif

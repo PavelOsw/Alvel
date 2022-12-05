@@ -3,12 +3,12 @@
 #include <string.h>
 
 // Headers
-#include "headers/Facturas.h";
-#include "headers/ListaReproduccion.h";
-#include "headers/Pagos.h";
-#include "headers/Peliculas.h";
-#include "headers/Series.h";
-#include "headers/Usuarios.h";
+#include "headers/Facturas.h"
+#include "headers/ListaReproduccion.h"
+#include "headers/Pagos.h"
+#include "headers/Peliculas.h"
+#include "headers/Series.h"
+#include "headers/Usuarios.h"
 
 using namespace std;
 
@@ -50,36 +50,53 @@ int main()
         cout<<"\n\t\t\tMENU PRINCIPAL "<<endl<<endl;
         SetConsoleTextAttribute(hConsole, 3);
 /*----------------------------------------------------------------------------------------*/
-        cout<<"1.-Registro de usuario" <<endl;
-        cout<<"2.-Mostrar registros" <<endl;
-        cout<<"3.-Modificar "<<endl;
-        cout<<"4.-Eliminar" <<endl;
-        cout<<"5.-Buscar "<<endl;
-        cout<<"6.-Salir "<<endl;
-        cout<<"Ingresa la opcion: ";
+        cout<<"1) USUARIOS" <<endl;
+        cout<<"2) PELICULAS" <<endl;
+        cout<<"3) SERIES"<<endl;
+        cout<<"4) LISTA DE REPRODUCCION" <<endl;
+        cout<<"5) PAGOS"<<endl;
+        cout<<"6) FACTURAS" << endl;
+        cout<<"7) SALIR"<<endl;
+        SetConsoleTextAttribute(hConsole, 15);
+        cout<<"\n==================================================================\n";
+        cout<<"\nINGRESA LA OPCION DESEADA: ";
         cin>>op;
         switch(op)
         {
         case 1:
+            USUARIOS_H_INCLUDED;
+            RegisUser.menuUser();
             system("cls");
             break;
         case 2:
+            PELICULAS_H_INCLUDED;
+            p.menuPeli();
             system("cls");
             break;
         case 3:
+            SERIES_H_INCLUDED;
+            pr.menuSerie();
             system("cls");
             break;
         case 4:
+            LISTAREPRO_H_INCLUDED;
+            firstClass.menuListaRepro();
             system("cls");
             break;
         case 5:
+            PAGOS_H_INCLUDED;
+            promo.menuPromo();
             system("cls");
             break;
         case 6:
-            op=6;
+            FACTURAS_H_INCLUDED;
+            factura.menuFactura();
+            system("cls");
+            break;
+        case 7:
             break;
         }
     }
-    while(op!=6);
+    while(op!=7);
     return 0;
 }

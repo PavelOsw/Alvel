@@ -13,13 +13,14 @@
 
 
 using namespace std;
-int orden=0;
+
 
 class reproduccionList
 {
     public:
     char pelicula[100], nombrePelicula[35], categoria[40],anio[20];
 
+    void menuListaRepro();
     void agregar();
     void imprimir();
     void buscar();
@@ -311,7 +312,7 @@ void reproduccionList::eliminar()
 
 }
 
-int main()
+void reproduccionList :: menuListaRepro()
 {
     int opc;
     do{
@@ -320,7 +321,7 @@ int main()
         SetConsoleTextAttribute(hConsole, 15);
         cout<<"\n==================================================================\n";
         SetConsoleTextAttribute(hConsole, 3);
-        cout<<"                 --- PELICULAS, SERIES, NOVELAS Y + ---\n\n";
+        cout<<"                 --- LISTAS DE REPRODUCCION ---\n\n";
         SetConsoleTextAttribute(hConsole, 12);
         cout<<"                               A";
         SetConsoleTextAttribute(hConsole, 9);
@@ -333,8 +334,6 @@ int main()
         cout<<"\n                                   L";
         SetConsoleTextAttribute(hConsole, 13);
         cout<<"\n                                    +";
-        SetConsoleTextAttribute(hConsole, 3);
-        cout<<"\n\n                 BIENVENIDO AL SERVICIO DE STREAMING!";
         SetConsoleTextAttribute(hConsole, 15);
         cout<<"\n==================================================================\n";
         SetConsoleTextAttribute(hConsole, 7);
@@ -342,21 +341,21 @@ int main()
         SetConsoleTextAttribute(hConsole, 3);
 
         /*----------------------------------------------------------------------------------------*/
-        cout<<"1) Agregar\n";
-        cout<<"2) Imprimir\n";
-        cout<<"3) Buscar\n";
-        cout<<"4) Modificar\n";
-        cout<<"5) Eliminar\n";
-        cout<<"6) Salir\n";
-        SetConsoleTextAttribute(hConsole, 7);
-        cout<<"\nOPC: ";
+        cout<<"1) AGREGAR\n";
+        cout<<"2) IMPRIMIR\n";
+        cout<<"3) BUSCAR\n";
+        cout<<"4) MODIFICAR\n";
+        cout<<"5) ELIMINAR\n";
+        cout<<"6) SALIR\n";
+        SetConsoleTextAttribute(hConsole, 15);
+        cout<<"\n==================================================================\n";
+        cout<<"\nINGRESA LA OPCION DESEADA: ";
         cin>>opc;
         switch(opc)
     {
 
         case 1:
         firstClass.agregar();
-
         break;
 
         case 2:
@@ -377,12 +376,9 @@ int main()
         break;
 
         case 6:
-        cout<<"SALIENDO..."<<endl<<endl;
-        return 0;
         break;
     }
     getch();
-    }while(opc!=7);
-    return 0;
+    }while(opc!=6);
 }
 #endif

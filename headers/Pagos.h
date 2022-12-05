@@ -36,7 +36,7 @@ class Promocion
         void setPrecio( const string & );
         friend ostream &operator<<( ostream &, const Promocion & );
 
-        menuPromo( void );
+        void menuPromo( void );
         bool agregar( const Promocion & );
         void mostrar( void );
         bool buscar( const string &, Promocion & );
@@ -92,7 +92,7 @@ Promocion Promocion::pedirRegistro( void )
     fflush( stdin );
     getline( cin, cadena );
     registroARetornar.setBanco( cadena );
-    
+
     cout << "Precio: ";
     fflush( stdin );
     getline( cin, cadena );
@@ -289,7 +289,7 @@ void Promocion::mostrar( void )
                         cout<<"=======================================================\n";
                         cout << promo << endl;
                         cout<<"=======================================================\n";
-                    }    
+                    }
                 }
             }
             else
@@ -313,7 +313,7 @@ bool Promocion::buscar( const string &folioABuscar, Promocion &promocionEncontra
         archivo.close();
         return false;
     }
-    
+
     posByte = buscarfolio( folioABuscar );
     archivo.seekg( posByte, ios::beg );
     archivo.read( ( char * ) &promocionEncontrada, sizeof( Promocion ) );
@@ -356,7 +356,7 @@ bool Promocion::modificar( const string &folioAModificar, const Promocion &promo
         posByteAntiguo = posIndiceAntiguo * ( sizeof( Promocion ) * CONTENEDOR + sizeof( int ) );
         archivo.seekg( posByteAntiguo, ios::beg );
         archivo.read( ( char * ) &contador, sizeof( int ) );
-        contador--; 
+        contador--;
         archivo.seekg( posByteAntiguo, ios::beg );
         archivo.write( ( char * ) &contador, sizeof( int ) );
 
@@ -402,7 +402,7 @@ bool Promocion::eliminar( const string &folioAEliminar, Promocion &destinoElimin
         cout << "El archivo no exite" << endl;
         archivo.close();
         return false;
-    } 
+    }
 
     posIndice = dispersion( folioAEliminar.c_str() );
     posByte = buscarfolio( folioAEliminar );
@@ -423,7 +423,7 @@ bool Promocion::eliminar( const string &folioAEliminar, Promocion &destinoElimin
 }
 
 
-int Promocion :: menuPromo( void )
+void Promocion :: menuPromo( void )
 {
     Promocion promocion, promocionBuscar, promocionModificar, promocionEliminar, registroAgregar;
     string folioABuscar, folioAModificar, folioAEliminar;
@@ -431,14 +431,14 @@ int Promocion :: menuPromo( void )
 
     promocion.genera();
     system( "cls" );
-    
+
     do{
         system("cls");
         HANDLE hConsole = GetStdHandle( STD_OUTPUT_HANDLE );
         SetConsoleTextAttribute(hConsole, 15);
         cout<<"\n==================================================================\n";
         SetConsoleTextAttribute(hConsole, 3);
-        cout<<"                 --- PELICULAS, SERIES, NOVELAS Y + ---\n\n";
+        cout<<"                           --- PAGOS ---\n\n";
         SetConsoleTextAttribute(hConsole, 12);
         cout<<"                               A";
         SetConsoleTextAttribute(hConsole, 9);
@@ -451,8 +451,6 @@ int Promocion :: menuPromo( void )
         cout<<"\n                                   L";
         SetConsoleTextAttribute(hConsole, 13);
         cout<<"\n                                    +";
-        SetConsoleTextAttribute(hConsole, 3);
-        cout<<"\n\n                 BIENVENIDO AL SERVICIO DE STREAMING!";
         SetConsoleTextAttribute(hConsole, 15);
         cout<<"\n==================================================================\n";
         SetConsoleTextAttribute(hConsole, 7);
@@ -460,15 +458,17 @@ int Promocion :: menuPromo( void )
         SetConsoleTextAttribute(hConsole, 3);
 
         /*----------------------------------------------------------------------------------------*/
-        cout<<"\n\n\t\tMenu de Pagos\n\n";
-        cout<<"Seleccione una opcion" << endl
-            << "1. Agregar"   << endl
-            << "2. Mostrar"   << endl
-            << "3. Buscar"    << endl
-            << "4. Modificar" << endl
-            << "5. Eliminar"  << endl
-            << "6. Salir"     << endl
+        cout<< endl
+            << "1) AGREGAR"   << endl
+            << "2) MOSTRAR"   << endl
+            << "3) BUSCAR"    << endl
+            << "4) MODIFICAR" << endl
+            << "5) ELIMINAR"  << endl
+            << "6) SALIR"     << endl
             << endl;
+        SetConsoleTextAttribute(hConsole, 15);
+        cout<<"\n==================================================================\n";
+        cout<<"\nINGRESA LA OPCION DESEADA: ";
         cin >> opcion;
         switch( opcion )
         {
